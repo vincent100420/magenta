@@ -17,6 +17,7 @@ enum {
     ACPI_CMD_GET_PCI_INIT_ARG = 3,
     ACPI_CMD_S_STATE_TRANSITION = 4,
     ACPI_CMD_PS0 = 5,
+    ACPI_CMD_GET_CHILD_BY_HID = 6,
 };
 
 typedef struct {
@@ -99,3 +100,12 @@ typedef struct {
 typedef struct {
     acpi_rsp_hdr_t hdr;
 } __PACKED acpi_rsp_ps0_t;
+
+typedef struct {
+    acpi_cmd_hdr_t hdr;
+    // hid is not NULL terminated
+    char hid[8];
+} __PACKED acpi_cmd_get_child_by_hid_t;
+typedef struct {
+    acpi_rsp_hdr_t hdr;
+} __PACKED acpi_rsp_get_child_by_hid_t;

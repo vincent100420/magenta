@@ -75,4 +75,9 @@ mx_status_t acpi_s_state_transition(acpi_handle_t* h, uint8_t target_state);
 // NOTE: this is a temporary interface that will be removed soon.
 mx_status_t acpi_ps0(acpi_handle_t* h, char* path, size_t len);
 
+// Return a handle to a child with the specified hid.
+//
+// It will only return children under the provided handle.
+mx_status_t acpi_get_handle_by_hid(acpi_handle_t* h, const char* hid, acpi_handle_t* child);
+
 __END_CDECLS

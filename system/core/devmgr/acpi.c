@@ -76,6 +76,10 @@ cleanup_handles:
     return status;
 }
 
+// FIXME(yky,teisenbe): Figure out the proper way to do this
+mx_status_t devmgr_init_acpi_devices(void) {
+}
+
 // TODO(teisenbe): Instead of doing this as a single function, give the kpci
 // driver a handle to the PCIe root complex ACPI node and let it ask for
 // the initialization info.

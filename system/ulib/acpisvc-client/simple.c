@@ -303,3 +303,15 @@ mx_handle_t acpi_clone_handle(acpi_handle_t* _h) {
     return h[0];
 }
 
+mx_handle_t acpi_get_device_by_hid(acpi_handle_t* h, const char* hid, acpi_handle_t* child) {
+    acpi_cmd_get_device_by_hid_t cmd = {
+        .hdr = {
+            .version = 0,
+            .cmd = ACPI_CMD_GET_CHILD_BY_HID,
+            .len = sizeof(cmd),
+        },
+    };
+    memcpy(cmd.hid, hid, sizeof(cmd.hid));
+
+    acpi_rsp_get_child_by_hid_t* rsp = NULL;
+}

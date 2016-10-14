@@ -117,6 +117,10 @@ int main(int argc, char** argv) {
             return 1;
         }
 
+        // FIXME publish devices that uses ACPI API here. Fix this when the acpi bus
+        // becomes the root device.
+        devmgr_init_acpi_devices();
+
         // Ignore the return value of this; if it fails, it may just be that the
         // platform doesn't support initing PCIe via ACPI.  If the platform needed
         // it, it will fail later.
